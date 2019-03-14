@@ -1,0 +1,11 @@
+  <% if iine.liking_users.include?(current_user) %>
+    <%= form_for(iine.likes.find_by(user_id: current_user.id), html: { method: :delete }) do |f| %>
+      <%= hidden_field_tag :iine_id, iine.id %>
+      <%= f.submit 'unlike', class: 'btn btn-danger btn-block' %>
+    <% end %>
+  <% else %>
+    <%= form_for(iine.likes.build) do |f| %>
+      <%= hidden_field_tag :iine_id, iine.id %>
+      <%= f.submit 'like', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  <% end %>

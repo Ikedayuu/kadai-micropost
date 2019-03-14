@@ -19,7 +19,12 @@ class MicropostsController < ApplicationController
     flash[:success] = 'メッセージを削除しました。'
     redirect_back(fallback_location: root_path)
   end
-
+  
+#  def likes
+#    @user = User.find(params[:id])
+#    @microposts = @user.likes.page(params[:page])
+#    counts(@user)
+#  end
   private
 
   def micropost_params
